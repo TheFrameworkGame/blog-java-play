@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings
+tmp/
+lib/
+test-result/
+logs/
+eclipse/
+*.swp

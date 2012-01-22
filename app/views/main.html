@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+<link rel="stylesheet" href="@{'/public/stylesheets/bootstrap.min.css'}">
+<link rel="stylesheet" media="screen"
+	href="@{'/public/stylesheets/main.css'}">
+#{get 'moreStyles' /}
+<link rel="shortcut icon" type="image/png"
+	href="@{'/public/images/favicon.png'}">
+<script src="@{'/public/javascripts/jquery-1.6.4.min.js'}"
+	type="text/javascript" charset="${_response_encoding}"></script>
+#{get 'moreScripts' /}
+</head>
+<body>
+	<div class="topbar">
+		<div class="fill">
+			<div class="container">
+			<ul class="nav">
+            	<li class="active"><a href="/">home</a></li>
+            	<li ><a href="@{CRUD.index}">admin</a></li>
+            </ul>
+            <ul class="nav secondary-nav">
+            	#{if user}
+            		<li><a href="@{Secure.logout}">logout from ${user}</a></li>
+            	#{/if}
+            	#{else}
+            		<li><a href="@{Secure.login}">login</a></li>
+            	#{/else}
+           	</ul>
+
+<!-- 				<form action="" class="pull-right"> -->
+<!-- 					<input class="input-small" type="text" placeholder="username"> -->
+
+<!-- 					<input class="input-small" type="password" placeholder="password"> -->
+<!-- 					<button class="btn" type="submit">Sign in</button> -->
+<!-- 				</form> -->
+			</div>
+		</div>
+	</div>
+	<div class="container">
+
+		<div class="content">
+			<div class="page-header">
+				<h1>
+					The Framework Game <small>in Play!</small>
+				</h1>
+			</div>
+			#{doLayout /}
+		</div>
+
+		<footer>
+			<p>
+				learn <a href="http://www.playframework.org/">more</a>
+			</p>
+		</footer>
+
+	</div>
+</body>
+</html>

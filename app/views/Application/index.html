@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'The Framework Game' /}
+
+#{if posts}
+	#{list items:posts, as:'post'}
+		<div class="row">
+          <div class="span6">
+            <h2><a href="@{Application.post(post.id)}">${post.title}</a></h2>
+			<span class="post-author">
+                by ${post.author.fullname}
+	        </span>
+          </div>
+          <div class="span8 tease">
+            ${post.tease}
+          </div>
+        </div>
+	#{/list}
+#{/if}
+
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}
