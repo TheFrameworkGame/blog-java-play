@@ -20,7 +20,6 @@ Category(test):
 Category(mvc):
     name:           MVC
 
-    
 Post(firstBobPost):
     title:          About the model layer
     postedAt:       2009-06-14

@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
@@ -24,10 +25,15 @@ public class Post extends Model {
 				.find("select distinct p from Post p join p.categories as c where c.name = ?",
 						name).fetch();
 	}
+	
+	public static Post findBySlug(final String slug) {
+		return Post.find("bySlug", slug).first();
+	}
 
     @Required
 	public String title;
 
+    @Column(unique=true)
     @Required
 	public String slug;
 

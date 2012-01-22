@@ -30,13 +30,19 @@ public class Application extends Controller {
 	}
 
 	public static void index() {
-		List<Post> posts = Post.find("order by postedAt desc").fetch(10);
-		render(posts);
+		page(1);
 	}
 
-	public static void post(final Long id) {
-		Post post = Post.findById(id);
+	public static void post(@Required String slug) {
+		Post post = Post.findBySlug(slug);
 		render(post);
+	}
+	
+	public static void page(@Required Integer n) {
+		int start = (n - 1) * 10;
+		List<Post> posts = Post.find("order by postedAt desc").from(start).fetch(10);
+		boolean hasMore = Post.count() > (n * 10);
+		render(posts,n,hasMore);
 	}
 
 }

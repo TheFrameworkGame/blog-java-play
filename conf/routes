@@ -5,6 +5,13 @@
 # Home page
 GET     /                                       Application.index
 
+# Application routes:
+GET		/post/{slug}             				Application.post
+GET		/page/{n}             					Application.page
+GET		/category/{name}             			Application.category
+GET		/category/{name}/page/{n}      			Application.categoryPage
+GET 	/sitemap.xml							Application.sitemap
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
