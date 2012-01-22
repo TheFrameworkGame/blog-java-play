@@ -79,3 +79,7 @@ body {
 .success {
 	color: #468847;
 }
+
+.categories {
+	text-align: center;
+}

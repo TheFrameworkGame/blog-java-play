@@ -1,0 +1,4 @@
+#{list items:_categories, as:'category'}
+    <a href="@{Application.category(category.name)}">${category}</a>
+    ${category_isLast ? '' : ', '}
+#{/list}

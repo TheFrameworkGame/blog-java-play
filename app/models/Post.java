@@ -20,10 +20,10 @@ import play.db.jpa.Model;
 @Entity
 public class Post extends Model {
 
-	public static List<Post> findCategory(final String name) {
+	public static List<Post> findCategory(final String name, int start) {
 		return Post
 				.find("select distinct p from Post p join p.categories as c where c.name = ?",
-						name).fetch();
+						name).from(start).<Post>fetch(10);
 	}
 	
 	public static Post findBySlug(final String slug) {

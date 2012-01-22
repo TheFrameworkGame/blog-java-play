@@ -19,6 +19,10 @@ public class Category extends Model implements Comparable<Category> {
 		}
 		return tag;
 	}
+	
+	public static Category findByName(final String name) {
+		return Category.find("byName", name).first();
+	}
 
 	public static List<Map> getCloud() {
 		List<Map> result = Category

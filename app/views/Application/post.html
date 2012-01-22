@@ -32,10 +32,7 @@
 		<span class="post-author">
 			by ${post.author.fullname}
 			#{if post.categories}
-		        - in 
-		        #{list items:post.categories, as:'category'}
-		            <a href="#">${category}</a>${category_isLast ? '' : ', '}
-		        #{/list}
+		        - in #{categoryList categories:post.categories /}
 			#{/if}
 		</span>
 		<div class="post-body">${post.content}</div>

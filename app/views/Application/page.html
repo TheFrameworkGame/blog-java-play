@@ -1,40 +1,45 @@
 #{extends 'main.html' /}
 #{set title:'The Framework Game' /}
 
+<p class="categories">
+	#{categoryList categories:categories /} 
+</p>
+
 #{if posts}
 
-<div class="row">
-<div class="span14">
-#{if n > 1}
-    <div id="previous">
-        <a href="@{Application.page(n - 1)}">
-            &lt; previous
-        </a>
-    </div>
-#{/if}
-#{if hasMore}
-    <div id="next">
-        <a href="@{Application.page(n + 1)}">
-            next &gt;
-        </a>
-    </div>
-#{/if}
-</div>
-</div>
-
+	<div class="row">
+	<div class="span14">
+	#{if n > 1}
+	    <div id="previous">
+	        <a href="@{Application.page(n - 1)}">
+	            &lt; previous
+	        </a>
+	    </div>
+	#{/if}
+	#{if hasMore}
+	    <div id="next">
+	        <a href="@{Application.page(n + 1)}">
+	            next &gt;
+	        </a>
+	    </div>
+	#{/if}
+	</div>
+	</div>
+	
 	#{list items:posts, as:'post'}
 		<div class="row">
-          <div class="span6">
+          <div class="span8">
             <h2><a href="@{Application.post(post.slug)}">${post.title}</a></h2>
 			<span class="post-author">
                 by ${post.author.fullname}
 	        </span>
           </div>
-          <div class="span8 tease">
+          <div class="span6 tease">
             ${post.tease}
           </div>
         </div>
 	#{/list}
+	
 #{/if}
 
 #{else}
