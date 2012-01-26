@@ -12,7 +12,7 @@ import play.db.jpa.Model;
 @Entity
 public class Category extends Model implements Comparable<Category> {
 
-	public static Category findOrCreateByName(final String name) {
+	public static final Category findOrCreateByName(final String name) {
 		Category tag = Category.find("byName", name).first();
 		if (tag == null) {
 			tag = new Category(name);
@@ -20,11 +20,11 @@ public class Category extends Model implements Comparable<Category> {
 		return tag;
 	}
 	
-	public static Category findByName(final String name) {
+	public static final Category findByName(final String name) {
 		return Category.find("byName", name).first();
 	}
 
-	public static List<Map> getCloud() {
+	public static final List<Map> getCloud() {
 		List<Map> result = Category
 				.find("select new map(c.name as category, count(p.id) as pound) from Post p join p.categories as c group by c.name order by c.name")
 				.fetch();
