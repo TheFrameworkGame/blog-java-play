@@ -20,8 +20,10 @@ Category(test):
 Category(mvc):
     name:           MVC
 
+    
 Post(firstBobPost):
     title:          About the model layer
+    slug:           about-the-model-layer
     postedAt:       2009-06-14
     author:         bob
     content:        >
@@ -39,6 +41,7 @@ Post(firstBobPost):
 
 Post(secondBobPost):
     title:          Just a test of YABE
+    slug:           just-a-test-of-yabe
     postedAt:       2009-03-25
     author:         bob
     content:        >
@@ -48,6 +51,7 @@ Post(secondBobPost):
                     
 Post(jeffPost):
     title:          The MVC application
+    slug:           the-mvc-application
     postedAt:       2009-06-06
     author:         jeff
     content:        >
